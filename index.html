@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoSpec Decoder</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode"> 
+    
+    <div class="main-container" style="margin-top: 40px;">
+        
+        <header class="page-header" style="display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 30px;">
+            <div>
+                <h1 style="font-size: 2.5rem;">AutoSpec <span style="color: #e74c3c;">Decoder</span></h1>
+                <p style="color: #888; margin:0;">Bu site Amerikan Otoyol Güvenliği (NHTSA) veritabanı kullanılarah hazırlanmıştır. Farklı lokasyonlarda araç motor tipleri değişebilir.</p>
+            </div>
+            
+            <label class="theme-switch">
+                <input type="checkbox" id="themeToggleCheckbox">
+                <span class="slider"></span>
+            </label>
+        </header>
+        
+        <div class="calculator-wrapper" style="align-items: flex-start;">
+
+            <div class="calculator-box" style="flex: 1;">
+                <h3 style="font-family: 'Orbitron', sans-serif; color: #fff; margin-bottom: 20px;">Araç Seçimi</h3>
+                
+                <div class="form-group">
+                    <label for="yearSelect"><i class="fas fa-calendar-alt"></i> 1. Üretim Yılı</label>
+                    <select id="yearSelect" class="form-control">
+                        <option value="">Yıl Seçiniz</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="makeSelect"><i class="fas fa-car"></i> 2. Marka</label>
+                    <select id="makeSelect" class="form-control" disabled>
+                        <option value="">Önce Yıl Seçin</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modelSelect"><i class="fas fa-car-side"></i> 3. Model</label>
+                    <select id="modelSelect" class="form-control" disabled>
+                        <option value="">Önce Marka Seçin</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="resultCard" class="card popular" style="flex: 1; min-height: auto; display: none;">
+                <div class="card-header">
+                    <h3 id="carTitle" style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem;">Araç Bekleniyor...</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li style="display: flex; justify-content: space-between;">
+                            <span><i class="fas fa-info-circle" style="color: #e74c3c;"></i> Araç Tipi:</span>
+                            <span id="vehicleType" style="font-weight: bold; color: #e74c3c;">-</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between;">
+                            <span><i class="fas fa-shield-alt" style="color: #e74c3c;"></i> Gövde Sınıfı:</span>
+                            <span id="bodyClass" style="font-weight: bold; color: #e74c3c;">-</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; border-bottom: none;">
+                            <span><i class="fas fa-cogs" style="color: #e74c3c;"></i> Motor Bilgisi:</span>
+                            <span id="engineInfo" style="font-weight: bold; color: #e74c3c;">-</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer" style="background: rgba(231, 76, 60, 0.1);">
+                    <p style="margin: 0; font-size: 0.9rem; color: #ccc;">*Veriler NHTSA API üzerinden anlık çekilmektedir.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
